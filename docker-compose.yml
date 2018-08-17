@@ -4,12 +4,28 @@ services:
     build: ./publisher
     environment:
       - PYTHONUNBUFFERED=1
-  zmq-subscriber:
+
+
+  zmq-subscriber1:
     build: ./subscriber
     environment:
       - ADDRESS=tcp://zmq-publisher:5555
       - PYTHONUNBUFFERED=1
     depends_on:
       - zmq-publisher
-    deploy:
-      replicas: 5
+
+  zmq-subscriber2:
+    build: ./subscriber
+    environment:
+      - ADDRESS=tcp://zmq-publisher:5555
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - zmq-publisher
+
+  zmq-subscriber3:
+    build: ./subscriber
+    environment:
+      - ADDRESS=tcp://zmq-publisher:5555
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - zmq-publisher
