@@ -1,1 +1,3 @@
-# zmq_example_4
+# zmq_docker_example
+
+example for using docker container with zmq hello world example
